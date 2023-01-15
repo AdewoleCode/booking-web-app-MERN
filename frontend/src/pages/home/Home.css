@@ -1,0 +1,86 @@
+.home {
+    /* height: 100vh; */
+    border: 1px solid red;
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+
+}
+
+.home .home-hero {
+    height: 65%;
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+}
+
+.home .home-hero .home-text{
+    flex-basis: 46%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.home .home-hero .home-text h2{
+    font-size: 2.2rem;
+    padding: 1px 0;
+    margin: 0;
+}
+
+.home .home-hero .home-text h2 span{
+    color: #39b920;
+    font-weight: bolder;
+    
+}
+.home .home-hero .home-text p{
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+
+.home .home-hero .home-img{
+    flex-basis: 45%;
+    /* border: 1px solid purple; */
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .home-hero .home-img .image{
+    /* border: 1px solid rgb(0, 41, 128); */
+    width: 30%;
+    height: 80%;
+}
+.home .home-hero .home-img .image img{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.home .home-hero .home-img .image-1{
+    margin-top: 50px;
+}
+
+.home .home-hero .home-img .image-2{
+    margin-top: 100px;
+}
+
+.home .home-hero .home-img .image-3{
+    margin-top: 150px;
+}
+
+.home .home-hero .home-btn{
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    color: white;
+    background-color:#39b920;
+  }
+
