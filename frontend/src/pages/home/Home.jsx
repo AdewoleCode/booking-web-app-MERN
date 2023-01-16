@@ -18,10 +18,13 @@ import PropertyTypes from '../../components/propertyTpes/PropertyTypes'
 import FeaturedList from '../../components/featuredList/FeaturedList'
 import MailList from '../../components/mailList/MailList'
 import Footer from '../../components/footer/Footer'
+import {useNavigate} from 'react-router-dom'
 
 
 
 const Home = () => {
+  const navigate = useNavigate()
+  const [destination, setDestination] = useState("")
   const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     {
@@ -44,6 +47,18 @@ const Home = () => {
         [name]: operation === "increase" ? options[name] + 1 : options[name] - 1
       }
     })
+  }
+
+
+  const handleSearch = () => {
+    navigate('/hotels', {
+      state:{
+        destination,
+        date,
+        options  
+      }
+    })
+
   }
 
 
@@ -83,6 +98,7 @@ const Home = () => {
             type="text"
             placeholder="Where are you going?"
             className="headerSearchInput"
+            onChange={e => setDestination(e.target.value)}
           />
         </div>
         <div className="headerSearchItem">
@@ -95,6 +111,7 @@ const Home = () => {
             onChange={item => setDate([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={date}
+            minDate={new Date()}
             className='date'
           />}
         </div>
@@ -153,7 +170,7 @@ const Home = () => {
         </div>
 
         <div className="headerSearchItem">
-          <button className="headerBtn" >
+          <button onClick={handleSearch} className="headerBtn" >
             Search
           </button>
         </div>

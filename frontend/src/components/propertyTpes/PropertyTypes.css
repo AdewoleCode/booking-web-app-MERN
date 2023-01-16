@@ -1,12 +1,12 @@
 .p-type-con {
-    max-width: 1150px;
+    max-width: 1100px;
     margin: 0 auto;
 
 }
 
 .pList{
     width: 100%;
-    max-width: 1150px;
+    max-width: 1100px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
