@@ -16,6 +16,8 @@ import { format } from 'date-fns'
 import Featured from '../../components/featured/Featured'
 import PropertyTypes from '../../components/propertyTpes/PropertyTypes'
 import FeaturedList from '../../components/featuredList/FeaturedList'
+import MailList from '../../components/mailList/MailList'
+import Footer from '../../components/footer/Footer'
 
 
 
@@ -160,6 +162,8 @@ const Home = () => {
     <Featured />
     <PropertyTypes />
     <FeaturedList />
+    <MailList />
+    <Footer />
     </>
   )
 }
