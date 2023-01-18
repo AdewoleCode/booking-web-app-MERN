@@ -4,16 +4,16 @@ import mongoose from "mongoose";
 const app = express();
 dotenv.config()
 
-// import authRoute from "../backend/routes/auth.js"
-// import usersRoute from "../backend/routes/users.js"
+import authRoute from "../backend/routes/auth.js"
+import usersRoute from "../backend/routes/users.js"
 import hotelsRoute from "../backend/routes/hotels.js"
 // import roomsRoute from "../backend/routes/rooms.js"
 
 
 app.use(express.json())
 
-// app.use('/api/auth', authRoute)
-// app.use('/api/users', usersRoute)
+app.use('/api/auth', authRoute)
+app.use('/api/users', usersRoute)
 app.use('/api/hotels', hotelsRoute)
 // app.use('/api/rooms', roomsRoute)
 
