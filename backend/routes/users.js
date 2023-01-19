@@ -6,11 +6,17 @@ import {
   getUsers,
 } from "../controllers/userControllers.js";
 
-const router = express.Router();
+import { 
+  verifyAdmin, 
+  verifyUser,
+ } from "../middleware/authMiddleware.js";
 
-router.put("/:id", updateUser);
-router.delete("/:id", deleteUser);
-router.get("/:id", getUser);
-router.get("/", getUsers);
+const userRouter = express.Router();
 
-export default router;
+userRouter.route('/').get(verifyAdmin, getUsers)
+userRouter.route('/:id').get(verifyUser, getUser)
+userRouter.route('/:id').delete(verifyUser, deleteUser)
+userRouter.route('/:id').put(verifyUser, updateUser)
+
+
+export default userRouter;
