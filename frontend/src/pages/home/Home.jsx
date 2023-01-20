@@ -24,7 +24,7 @@ import {useNavigate} from 'react-router-dom'
 
 const Home = () => {
   const navigate = useNavigate()
-  const [destination, setDestination] = useState("")
+  const [destination, setDestination] = useState("lagos")
   const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     {
@@ -99,6 +99,7 @@ const Home = () => {
             placeholder="Where are you going?"
             className="headerSearchInput"
             onChange={e => setDestination(e.target.value)}
+            // value="lagos"
           />
         </div>
         <div className="headerSearchItem">

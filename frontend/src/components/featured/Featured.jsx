@@ -10,7 +10,7 @@ const Featured = () => {
 
   useEffect(() => {
     fetchData(countByCityRoute)
-  }, [countByCityRoute])
+  }, [])
 
   const fetchData = async (url) => {
     setLoading(true)
