@@ -1,12 +1,12 @@
 import "./HotelList.css";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState} from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem"
 import { useEffect } from "react";
-// import { getHotelsSearch } from "../../apiRoutes/routes";
 import axios from "axios";
+
 
 const HotelList = () => {
   const location = useLocation();
@@ -51,10 +51,10 @@ const HotelList = () => {
     })
   }
 
+
   const handleClick = () => {
     refetchData()
   }
-
 
 
   return (
@@ -135,7 +135,7 @@ const HotelList = () => {
             ) : (
               <>
                 {
-                  data && data.map((item, i)=>(
+                  data && data?.map((item, i)=>(
                     <SearchItem item={item} key={item._id}/>
                   ) )
 

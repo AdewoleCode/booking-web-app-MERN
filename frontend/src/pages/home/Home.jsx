@@ -19,10 +19,13 @@ import FeaturedList from '../../components/featuredList/FeaturedList'
 import MailList from '../../components/mailList/MailList'
 import Footer from '../../components/footer/Footer'
 import {useNavigate} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { SearchActions } from '../../redux/slices/SearchSlice'
 
 
 
 const Home = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [destination, setDestination] = useState("lagos")
   const [openDate, setOpenDate] = useState(false)
@@ -51,6 +54,12 @@ const Home = () => {
 
 
   const handleSearch = () => {
+    dispatch(SearchActions.newSearch({
+      date,
+      destination,
+      options
+    }))
+  
     navigate('/hotels', {
       state:{
         destination,
@@ -58,9 +67,7 @@ const Home = () => {
         options  
       }
     })
-
   }
-
 
 
   return (

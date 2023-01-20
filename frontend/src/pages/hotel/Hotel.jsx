@@ -11,6 +11,8 @@ import {
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
+
 
 const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
@@ -20,8 +22,18 @@ const Hotel = () => {
   const [loading, setLoading] = useState(false)
   const id = location.pathname.split("/")[2]
   const getSingleRouteUrl = `http://localhost:8000/api/hotels/find/${id}`
+  
 
 
+  // const {date, destination, options} =  useContext(SearchContext)
+  // console.log(options, date, destination);
+
+  const date = useSelector(state => state.search.date)
+  const destination = useSelector(state => state.search.city)
+  const options = useSelector(state => state.search.options)
+
+
+  console.log(date, destination, options );
 
 
   useEffect(() => {

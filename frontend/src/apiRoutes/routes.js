@@ -6,3 +6,4 @@ export const countByPropertyRoute = `${host}/hotels/countByType`
 export const getHotelsFeatured = `${host}/hotels/find/?featured=true&limit=4`
 // export const getHotelsSearch = `${host}/hotels/find/?${destination}`
 
+
