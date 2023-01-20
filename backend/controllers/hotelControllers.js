@@ -39,14 +39,19 @@ export const getHotel = async (req, res, next) => {
   }
 };
 export const getHotels = async (req, res, next) => {
+  const { min, max, ...others} = req.query;
+
   try {
-    const hotels = await HotelModel.find({})
+    const hotels = await HotelModel.find({
+      ...others,
+      cheapestPrice: { $gt: min | 1, $lt: max || 999 },
+    }).limit(req.query.limit);
+
     res.status(200).json(hotels);
   } catch (err) {
     return res.json({ message: "could not find any hotels!" });
   }
 };
-
 
 export const countByCity = async (req, res) => {
   const cities = req.query.cities.split(",");
@@ -67,7 +72,9 @@ export const countByCity = async (req, res) => {
 export const countByType = async (req, res, next) => {
   try {
     const hotelCount = await HotelModel.countDocuments({ type: "hotels" });
-    const apartmentCount = await HotelModel.countDocuments({ type: "apartments" });
+    const apartmentCount = await HotelModel.countDocuments({
+      type: "apartments",
+    });
     const resortCount = await HotelModel.countDocuments({ type: "resorts" });
     const villaCount = await HotelModel.countDocuments({ type: "villas" });
     const cabinCount = await HotelModel.countDocuments({ type: "cabins" });
