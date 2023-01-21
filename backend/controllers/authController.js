@@ -69,7 +69,7 @@ export const login = async (req, res, next) => {
       expiresIn: "30d"})
 
     if (user && isPasswordValid) {
-      const { username, email, _id, isAdmin } = existingUser;
+      const { username, email, _id, isAdmin } = user;
 
       return res
         .cookie("token", token, {
