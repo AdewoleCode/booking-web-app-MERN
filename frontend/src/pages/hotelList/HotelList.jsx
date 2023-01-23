@@ -10,7 +10,7 @@ import axios from "axios";
 
 const HotelList = () => {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const [destination, setDestination] = useState(location.state.destination);
   const [date, setDate] = useState(location.state.date);
   const [options, setOptions] = useState(location.state.options);
@@ -29,7 +29,7 @@ const HotelList = () => {
     setLoading(true)
     await axios.get(url).then((res) => {
       setData(res.data)
-      console.log(res.data);
+      // console.log(res.data);
       setLoading(false)
     })
   }
@@ -46,7 +46,7 @@ const HotelList = () => {
     setLoading(true)
     await axios.get(refetchUrl).then((res) => {
       setData(res.data)
-      console.log(res.data);
+      // console.log(res.data);
       setLoading(false)
     })
   }
@@ -65,7 +65,8 @@ const HotelList = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input type="text" placeholder={destination} />
+              <input type="text" placeholder="lagos, abuja or bayelsa
+              ?" onChange={(e)=> setDestination(e.target.value)} />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>

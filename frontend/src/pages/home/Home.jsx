@@ -18,16 +18,19 @@ import PropertyTypes from '../../components/propertyTpes/PropertyTypes'
 import FeaturedList from '../../components/featuredList/FeaturedList'
 import MailList from '../../components/mailList/MailList'
 import Footer from '../../components/footer/Footer'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { SearchActions } from '../../redux/slices/SearchSlice'
+import { useSelector } from "react-redux";
+
 
 
 
 const Home = () => {
+  const user = useSelector(state=> state.auth.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [destination, setDestination] = useState("lagos")
+  const [destination, setDestination] = useState('abuja')
   const [openDate, setOpenDate] = useState(false)
   const [date, setDate] = useState([
     {
@@ -82,7 +85,9 @@ const Home = () => {
             Get rewarded for your travels. unlock instant savings of
             10% or more with a free AdewoleBookings.com account!
           </p>
-          <button className="home-btn">sign in/Register</button>
+          {
+            !user && <button className="home-btn"><Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>sign in/Register</Link></button>
+          }
         </div>
         <div className="home-img">
           <div className="image image-1">

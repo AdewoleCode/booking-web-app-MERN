@@ -1,14 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    city: undefined ,
-    date: [],
+    city: undefined,
+    date: [{
+      startDate: new Date(),
+      endDate: new Date(),
+      // endDate: new Date(Date.now() + 1000 * 86400)
+    }],
     options: {
-      adult: undefined,
-      children: undefined,
-      room: undefined,
+      adult: 1,
+      children: 1,
+      room: 1,
     },
 }
+
+
+
   
 
 const SearchSlice = createSlice({

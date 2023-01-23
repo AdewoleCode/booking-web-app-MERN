@@ -1,15 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import "./Login.css";
+import { Link, useNavigate } from "react-router-dom";
+import "../login/Login.css";
 import { useDispatch } from "react-redux";
 import { AuthActions } from "../../redux/slices/AuthSlice";
 
-const Login = () => {
+const Register = () => {
     const dispatch = useDispatch()
     const [credentials, setCredentials] = useState({
         username: undefined,
         password: undefined,
+        email: undefined
     });
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
@@ -29,7 +30,7 @@ const Login = () => {
             dispatch(AuthActions.loginStart)
             try {
                 setLoading(true)
-                const res = await axios.post("http://localhost:8000/api/auth/login", credentials);
+                const res = await axios.post("http://localhost:8000/api/auth/register", credentials);
                 console.log(res.data);
                 dispatch(AuthActions.loginSuccess(res.data.userDetails));
                 localStorage.setItem('user', JSON.stringify(res.data.userDetails))
@@ -45,8 +46,8 @@ const Login = () => {
     };
 
     const validateForm = () => {
-        const { username, password } = credentials;
-        if (username === undefined || password === undefined) {
+        const { username, password, email } = credentials;
+        if (username === undefined || password === undefined || email === undefined) {
             setError(true)
             setErrorMsg('please provide valid credentials!')
           return false;
@@ -59,6 +60,13 @@ const Login = () => {
     return (
         <div className="login">
             <div className="lContainer">
+            <input
+                    type="email"
+                    placeholder="email"
+                    id="email"
+                    onChange={handleChange}
+                    className="lInput"
+                />
                 <input
                     type="text"
                     placeholder="username"
@@ -73,14 +81,15 @@ const Login = () => {
                     onChange={handleChange}
                     className="lInput"
                 />
+              
                 <button disabled={loading} onClick={handleClick} className="lButton">
                     Login
                 </button>
                 {error && <span>{errorMsg}</span>}
-                <div   className="already-btn">Dont have an account? <Link style={{ textDecoration: "underline", color: "green" }} to="/register">Register</Link></div>
+                <div className="already-btn">Already have an account? <Link style={{ textDecoration: "underline", color: "green" }} to="/login">Login</Link></div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Register;

@@ -1,10 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { useEffect } from 'react';
 
 const initialState = {
-    user: null,
+    user: JSON.parse(localStorage.getItem('user'))  || null,
     loading: false,
-    error: null
 }
 
   
@@ -19,7 +17,6 @@ const AuthSlice = createSlice({
         state.user = null
     },
     loginSuccess: (state, action) => {
-        // const loggedInUser = action.payload
          state.user = action.payload
     },
     loginFailure: (state, action) => {
