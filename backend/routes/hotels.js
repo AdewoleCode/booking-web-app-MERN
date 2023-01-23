@@ -6,7 +6,8 @@ import {
   getHotels,
   updateHotel,
   countByCity,
-  countByType
+  countByType,
+  getHotelRooms
 } from "../controllers/hotelControllers.js";
 
 import {verifyAdmin} from "../middleware/authMiddleware.js"
@@ -20,6 +21,7 @@ router.get("/find/:id", getHotel);
 router.get("/find", getHotels);
 router.get("/countByCity", countByCity);
 router.get("/countByType", countByType);
+router.get("/room/:id", getHotelRooms)
 
 
 export default router;

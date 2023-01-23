@@ -1,4 +1,5 @@
 import HotelModel from "../models/HotelModel.js";
+import RoomModel from '../models/RoomModel.js'
 
 export const createHotel = async (req, res, next) => {
   console.log(req.body);
@@ -88,5 +89,19 @@ export const countByType = async (req, res, next) => {
     ]);
   } catch (err) {
     return res.json({ message: "could not fetch hotel counts!" });
+  }
+};
+
+export const getHotelRooms = async (req, res, next) => {
+  try {
+    const hotel = await HotelModel.findById(req.params.id);
+    const list = await Promise.all(
+      hotel.rooms.map((room) => {
+        return RoomModel.findById(room);
+      })
+    );
+    res.status(200).json(list)
+  } catch (err) {
+    return res.json({ message: "could not fetch hotel rooms!" });
   }
 };
