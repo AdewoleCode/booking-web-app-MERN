@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="navContainer">
         <span className="logo">
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-            AdewoleBookings
+            AdeBookings
           </Link>
         </span>
         <span className="logo">
@@ -32,8 +32,8 @@ const Navbar = () => {
         </span>
         {
           user ? (
-            <div>
-              <h1>user.username</h1>
+            <div className="user-div">
+              <div>{user.username}</div>
               <button onClick={handleLogout} className="log navButton">Logout</button>
             </div>
           )

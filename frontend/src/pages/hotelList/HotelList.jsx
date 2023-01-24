@@ -23,7 +23,7 @@ const HotelList = () => {
 
   useEffect(() => {
     fetchData(`http://localhost:8000/api/hotels/find/?city=${destination}`)
-  }, [destination])
+  }, [])
 
   const fetchData = async (url) => {
     setLoading(true)

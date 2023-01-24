@@ -1,6 +1,11 @@
 .p-type-con {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 10px 0;
+}
+
+.p-type-con h3{
+  margin-left: 30px;
 
 }
 
@@ -8,14 +13,16 @@
     width: 100%;
     max-width: 1100px;
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: space-evenly;
+    gap: 10px;
     margin: 0 auto;
     padding: 10px 0;
+    flex-wrap: wrap;
+
   }
   
   .pListItem{
-    flex:1;
+    width: 190px;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -35,4 +42,15 @@
   .pListTitles>h2{
     font-size: 14px;
     font-weight: 300;
+  }
+
+
+  @media screen and (max-width: 850px) {
+    .pList{
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto;
+      padding: 10px 0;
+    }
+
   }

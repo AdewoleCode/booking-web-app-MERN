@@ -114,7 +114,7 @@ const Home = () => {
             // value="lagos"
           />
         </div>
-        <div className="headerSearchItem">
+        <div className="headerSearchItem" onClick={() => setOpenDate(!openDate)}>
           <FontAwesomeIcon className="headerIcon" onClick={() => setOpenDate(!openDate)} icon={faCalendarDays} />
           <span onClick={() => setOpenDate(!openDate)} className="headerSearchText">
             {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
@@ -128,7 +128,7 @@ const Home = () => {
             className='date'
           />}
         </div>
-        <div className="headerSearchItem">
+        <div className="headerSearchItem" onClick={() => setOpenOptions(!openOptions)}>
           <FontAwesomeIcon onClick={() => setOpenOptions(!openOptions)}  icon={faPerson} className="headerIcon" />
           <span onClick={() => setOpenOptions(!openOptions)} className="headerSearchText">
             {`${options.adult} adult,  ${options.children} children, ${options.room} room `}
@@ -145,7 +145,7 @@ const Home = () => {
                     className="optionCounterButton">
                     -
                   </button>
-                  <span className="optionCounterNumber">{options.adult}</span>
+                  <span className="optionCounterNumber" >{options.adult}</span>
                   <button onClick={() => handleOptions('adult', 'increase')} className="optionCounterButton">+</button>
                 </div>
               </div>

@@ -40,11 +40,8 @@ const Hotel = () => {
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
   }
-  console.log(date);
-  console.log(options);
 
   const days = dayDifference(date[0].endDate, date[0].startDate);
-  console.log(days);
 
 
   useEffect(() => {
@@ -138,7 +135,7 @@ const Hotel = () => {
                   </div>
                 )}
                 <div className="hotelWrapper">
-                  <button className="bookNow">Reserve or Book Now!</button>
+                  <button onClick={handleClick} className="bookNow">Reserve or Book Now!</button>
                   <h1 className="hotelTitle">{data?.name}</h1>
                   <div className="hotelAddress">
                     <FontAwesomeIcon icon={faLocationDot} />
