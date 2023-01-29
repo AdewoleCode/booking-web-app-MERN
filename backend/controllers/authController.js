@@ -40,7 +40,7 @@ export const register = async (req, res, next) => {
 
     if (user) {
       const { username, email, _id, isAdmin } = user;
-      res.status(201).json({ userDetails: { username, email, _id, isAdmin } });
+      res.status(201).json({ userDetails: { username, email, _id } });
     }
   } catch (error) {
     return res.json({ messasge: error.message });
@@ -79,7 +79,8 @@ export const login = async (req, res, next) => {
         .status(200)
         .json({
           messasge: "login succesfully",
-          userDetails: { username, email, _id, isAdmin },
+          userDetails: { username, email, _id},
+          isAdmin
         });
     }
   } catch (error) {
